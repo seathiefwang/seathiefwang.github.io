@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openwrt通过libcurl上传图片，PHP接收文件 | Tumumu的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="openwrt通过libcurl上传图片，服务器端通过PHP接收文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openwrt通过libcurl上传图片，PHP接收文件">
+<meta property="og:url" content="http://tumumu.cn/2016/12/16/openwrt-libcurl-php/index.html">
+<meta property="og:site_name" content="Tumumu的博客">
+<meta property="og:description" content="openwrt通过libcurl上传图片，服务器端通过PHP接收文件">
+<meta property="og:updated_time" content="2016-12-16T02:10:08.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="openwrt通过libcurl上传图片，PHP接收文件">
+<meta name="twitter:description" content="openwrt通过libcurl上传图片，服务器端通过PHP接收文件">
+  
+    <link rel="alternative" href="/atom.xml" title="Tumumu的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Tumumu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">此去经年,道阻且长.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/tags">静心阅读</a></li>
+                        
+                            <li><a href="/instagram">光影之路</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/seathiefwang" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/3273536727" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Openwrt/" style="font-size: 10px;">Openwrt</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://51cco.cn/">51cco</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">安能以皓皓之白，而蒙世俗之尘埃乎！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Tumumu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Tumumu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">此去经年,道阻且长.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/tags">静心阅读</a></li>
+                
+                    <li><a href="/instagram">光影之路</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/seathiefwang" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/3273536727" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-openwrt-libcurl-php" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/16/openwrt-libcurl-php/" class="article-date">
+      <time datetime="2016-12-15T17:37:27.000Z" itemprop="datePublished">2016-12-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openwrt通过libcurl上传图片，PHP接收文件
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Openwrt/">Openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="客户端文件上传"><a href="#客户端文件上传" class="headerlink" title="客户端文件上传"></a>客户端文件上传</h1><p>libcurl上传文件有两种方式：</p>
+<h3 id="1、直接上传文件，类似form表单"><a href="#1、直接上传文件，类似form表单" class="headerlink" title="1、直接上传文件，类似form表单"></a>1、直接上传文件，类似form表单</h3><p><code>&lt;input type=”file” /&gt;，&lt;form enctype=”multipart/form-data”…；</code></p>
+<h3 id="2、上传二进制流"><a href="#2、上传二进制流" class="headerlink" title="2、上传二进制流"></a>2、上传二进制流</h3><p>设定自定义头，都是使用一样的方法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> curl_slist *headers=<span class="literal">NULL</span>;</div><div class="line">headers = curl_slist_append(headers, <span class="string">"Content-Type: text/xml"</span>);</div><div class="line">headers = curl_slist_append(headers, <span class="string">"Accept: text/html, */*;q=0.01"</span>);</div><div class="line"><span class="comment">//...</span></div><div class="line"></div><div class="line"><span class="comment">//set headers</span></div><div class="line">curl_easy_setopt(easyhandle, CURLOPT_HTTPHEADER, headers);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//last free the header list</span></div><div class="line">curl_slist_free_all(headers); <span class="comment">/* free the header list */</span></div></pre></td></tr></table></figure>
+<h3 id="附上开发中写的程序代码"><a href="#附上开发中写的程序代码" class="headerlink" title="附上开发中写的程序代码"></a>附上开发中写的程序代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">UploadFile</span><span class="params">(<span class="keyword">char</span> *file_name, <span class="keyword">char</span> *dir_name, <span class="keyword">char</span> *save_name)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> buff[<span class="number">128</span>];</div><div class="line">    CURL *curl;  </div><div class="line">  </div><div class="line">    CURLM *multi_handle;  </div><div class="line">    <span class="keyword">int</span> still_running;  </div><div class="line">  </div><div class="line">    <span class="keyword">struct</span> curl_httppost *formpost=<span class="literal">NULL</span>;  </div><div class="line">    <span class="keyword">struct</span> curl_httppost *lastptr=<span class="literal">NULL</span>;  </div><div class="line">    <span class="keyword">struct</span> curl_slist *headerlist=<span class="literal">NULL</span>;  </div><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">char</span> buf[] = <span class="string">"Expect:"</span>;  </div><div class="line">  </div><div class="line">    <span class="built_in">sprintf</span>(buff, <span class="string">"%s%s%s%s"</span>, dir_name, <span class="string">"-"</span>, save_name, <span class="string">".jpg"</span>);</div><div class="line">    <span class="comment">/* Fill in the file upload field. This makes libcurl load data from </span></div><div class="line">        the given file name when curl_easy_perform() is called. */  </div><div class="line">    curl_formadd(&amp;formpost,  </div><div class="line">                &amp;lastptr,  </div><div class="line">                CURLFORM_COPYNAME, <span class="string">"file"</span>,</div><div class="line">                CURLFORM_FILE, file_name,  </div><div class="line">                CURLFORM_CONTENTTYPE, <span class="string">"Image/jpeg"</span>,</div><div class="line">                CURLFORM_FILENAME, buff,</div><div class="line">                CURLFORM_END);  </div><div class="line">  </div><div class="line">    <span class="comment">/* Fill in the filename field */</span>  </div><div class="line">    curl_formadd(&amp;formpost,</div><div class="line">                &amp;lastptr,</div><div class="line">                CURLFORM_COPYNAME, <span class="string">"filename"</span>,</div><div class="line">                CURLFORM_COPYCONTENTS, save_name,  </div><div class="line">                CURLFORM_END);  </div><div class="line">  </div><div class="line">    <span class="comment">/* Fill in the submit field too, even if this is rarely needed */</span>  </div><div class="line">    curl_formadd(&amp;formpost,  </div><div class="line">                &amp;lastptr,  </div><div class="line">                CURLFORM_COPYNAME, <span class="string">"directory"</span>,  </div><div class="line">                CURLFORM_COPYCONTENTS, dir_name,  </div><div class="line">                CURLFORM_END);  </div><div class="line">  </div><div class="line">    curl = curl_easy_init();  </div><div class="line">    multi_handle = curl_multi_init();  </div><div class="line">  </div><div class="line">    <span class="comment">/* initalize custom header list (stating that Expect: 100-continue is not </span></div><div class="line">     wanted */  </div><div class="line">    headerlist = curl_slist_append(headerlist, buf);  </div><div class="line">    <span class="keyword">if</span>(curl &amp;&amp; multi_handle) &#123;  </div><div class="line"></div><div class="line">        <span class="comment">/* what URL that receives this POST */</span>  </div><div class="line">        curl_easy_setopt(curl, CURLOPT_URL, <span class="string">"https://app.sopings.com/lock/control/_UploadFile.php"</span>);  </div><div class="line">        curl_easy_setopt(curl, CURLOPT_VERBOSE, <span class="number">1L</span>);  </div><div class="line"></div><div class="line">        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerlist);  </div><div class="line">        curl_easy_setopt(curl, CURLOPT_HTTPPOST, formpost);  </div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (<span class="number">1</span>) &#123;</div><div class="line">            curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, <span class="number">0</span>);  </div><div class="line">            curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, <span class="number">0</span>);  </div><div class="line">        &#125;            </div><div class="line"></div><div class="line">        curl_multi_add_handle(multi_handle, curl);  </div><div class="line"></div><div class="line">        curl_multi_perform(multi_handle, &amp;still_running);  </div><div class="line"></div><div class="line">        <span class="keyword">do</span> &#123;  </div><div class="line">            <span class="keyword">struct</span> timeval timeout;  </div><div class="line">            <span class="keyword">int</span> rc; <span class="comment">/* select() return code */</span>  </div><div class="line"></div><div class="line">            fd_set fdread;  </div><div class="line">            fd_set fdwrite;  </div><div class="line">            fd_set fdexcep;  </div><div class="line">            <span class="keyword">int</span> maxfd = <span class="number">-1</span>;  </div><div class="line"></div><div class="line">            <span class="keyword">long</span> curl_timeo = <span class="number">-1</span>;  </div><div class="line"></div><div class="line">            FD_ZERO(&amp;fdread);  </div><div class="line">            FD_ZERO(&amp;fdwrite);  </div><div class="line">            FD_ZERO(&amp;fdexcep);  </div><div class="line"></div><div class="line">            <span class="comment">/* set a suitable timeout to play around with */</span>  </div><div class="line">            timeout.tv_sec = <span class="number">1</span>;  </div><div class="line">            timeout.tv_usec = <span class="number">0</span>;  </div><div class="line"></div><div class="line">            curl_multi_timeout(multi_handle, &amp;curl_timeo);  </div><div class="line">            <span class="keyword">if</span>(curl_timeo &gt;= <span class="number">0</span>) &#123;  </div><div class="line">                timeout.tv_sec = curl_timeo / <span class="number">1000</span>;  </div><div class="line">                <span class="keyword">if</span>(timeout.tv_sec &gt; <span class="number">1</span>)  </div><div class="line">                    timeout.tv_sec = <span class="number">1</span>;  </div><div class="line">                <span class="keyword">else</span>  </div><div class="line">                timeout.tv_usec = (curl_timeo % <span class="number">1000</span>) * <span class="number">1000</span>;  </div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="comment">/* get file descriptors from the transfers */</span>  </div><div class="line">            curl_multi_fdset(multi_handle, &amp;fdread, &amp;fdwrite, &amp;fdexcep, &amp;maxfd);  </div><div class="line"></div><div class="line">            <span class="comment">/* In a real-world program you OF COURSE check the return code of the </span></div><div class="line">             function calls.  On success, the value of maxfd is guaranteed to be </div><div class="line">             greater or equal than -1.  We call select(maxfd + 1, ...), specially in </div><div class="line">             case of (maxfd == -1), we call select(0, ...), which is basically equal </div><div class="line">             to sleep. */  </div><div class="line"></div><div class="line">            rc = select(maxfd+<span class="number">1</span>, &amp;fdread, &amp;fdwrite, &amp;fdexcep, &amp;timeout);  </div><div class="line"></div><div class="line">            <span class="keyword">switch</span>(rc) &#123;  </div><div class="line">                <span class="keyword">case</span> <span class="number">-1</span>:  </div><div class="line">                    <span class="comment">/* select error */</span>  </div><div class="line">                    <span class="keyword">break</span>;  </div><div class="line">                <span class="keyword">case</span> <span class="number">0</span>:  </div><div class="line">                <span class="keyword">default</span>:  </div><div class="line">                    <span class="comment">/* timeout or readable/writable sockets */</span>  </div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"perform!\n"</span>);  </div><div class="line">                    curl_multi_perform(multi_handle, &amp;still_running);  </div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"running: %d!\n"</span>, still_running);  </div><div class="line">                    <span class="keyword">break</span>;  </div><div class="line">            &#125;  </div><div class="line">        &#125; <span class="keyword">while</span>(still_running);  </div><div class="line"></div><div class="line">        curl_multi_cleanup(multi_handle);  </div><div class="line"></div><div class="line">        <span class="comment">/* always cleanup */</span>  </div><div class="line">        curl_easy_cleanup(curl);  </div><div class="line"></div><div class="line">        <span class="comment">/* then cleanup the formpost chain */</span>  </div><div class="line">        curl_formfree(formpost);  </div><div class="line"></div><div class="line">        <span class="comment">/* free slist */</span>  </div><div class="line">        curl_slist_free_all (headerlist);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>服务器端的接收代码（PHP）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;?<span class="function">php</span></div><div class="line"></div><div class="line"><span class="title">require_once</span> <span class="params">(__DIR__.<span class="string">"/../libs/Error.php"</span>)</span>;</div><div class="line">include_once (__DIR__.<span class="string">"/../db/Db.php"</span>);</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 上传文件</div><div class="line"> * @author 戴栋根</div><div class="line"> * @version 1.0</div><div class="line"> * @created 16-三月-2016</div><div class="line"> */</div><div class="line"><span class="keyword">if</span> ((($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"Image/png"</span>)</div><div class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"Image/jpeg"</span>)</div><div class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"Image/pjpeg"</span>))</div><div class="line">&amp;&amp; ($_FILES[<span class="string">"file"</span>][<span class="string">"size"</span>] &lt; <span class="number">10000000</span>))</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> ($_FILES[<span class="string">"file"</span>][<span class="string">"error"</span>] &gt; <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        echo Error::getRetString(<span class="number">10021</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        echo <span class="string">"Upload: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>] . <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">        echo <span class="string">"Type: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] . <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">        echo <span class="string">"Size: "</span> . ($_FILES[<span class="string">"file"</span>][<span class="string">"size"</span>] / <span class="number">1024</span>) . <span class="string">" Kb&lt;br /&gt;"</span>;</div><div class="line">        echo <span class="string">"Temp file: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"tmp_name"</span>] . <span class="string">"&lt;br /&gt;"</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!file_exists($_FILES[<span class="string">"directory"</span>][<span class="string">"type"</span>])) </div><div class="line">        &#123;</div><div class="line">            mkdir ($_FILES[<span class="string">"directory"</span>][<span class="string">"type"</span>]);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (file_exists($_FILES[<span class="string">"directory"</span>][<span class="string">"type"</span>].<span class="string">"/"</span> . $_FILES[<span class="string">"filename"</span>][<span class="string">"type"</span>]))</div><div class="line">        &#123;</div><div class="line">            echo $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>] . <span class="string">" already exists. "</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            move_uploaded_file($_FILES[<span class="string">"file"</span>][<span class="string">"tmp_name"</span>],</div><div class="line">            $_FILES[<span class="string">"directory"</span>][<span class="string">"type"</span>].<span class="string">"/"</span> . $_FILES[<span class="string">"filename"</span>][<span class="string">"type"</span>]);</div><div class="line">            echo <span class="string">"Stored in: "</span> . $_FILES[<span class="string">"directory"</span>][<span class="string">"type"</span>].<span class="string">"/"</span> . $_FILES[<span class="string">"filename"</span>][<span class="string">"type"</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">    echo Error::getRetString(<span class="number">10007</span>);</div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p><a href="https://curl.haxx.se/libcurl/c/" target="_blank" rel="external">libcurl开发文档链接</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/12/16/openwrt-libcurl-php/">openwrt通过libcurl上传图片，PHP接收文件</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Tumumu 的个人博客">Tumumu</a></p>
+        <p><span>发布时间:</span>2016年12月16日 - 01时37分</p>
+        <p><span>最后更新:</span>2016年12月16日 - 10时10分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/16/openwrt-libcurl-php/" title="openwrt通过libcurl上传图片，PHP接收文件">http://tumumu.cn/2016/12/16/openwrt-libcurl-php/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2016/12/16/openwrt-libcurl-php/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/15/installBlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Github+Hexo搭建博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端文件上传"><span class="toc-number">1.</span> <span class="toc-text">客户端文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、直接上传文件，类似form表单"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、直接上传文件，类似form表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、上传二进制流"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、上传二进制流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附上开发中写的程序代码"><span class="toc-number">1.0.3.</span> <span class="toc-text">附上开发中写的程序代码</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/12/16/openwrt-libcurl-php/" data-title="openwrt通过libcurl上传图片，PHP接收文件" data-url="http://tumumu.cn/2016/12/16/openwrt-libcurl-php/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tumumu"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/12/15/installBlog/" title="下一篇: Github+Hexo搭建博客">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/openwrt-libcurl-php/">openwrt通过libcurl上传图片，PHP接收文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Tumumu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
