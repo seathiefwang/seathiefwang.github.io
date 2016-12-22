@@ -11,13 +11,14 @@
 <meta property="og:url" content="http://tumumu.cn/2016/12/22/find-word-files/index.html">
 <meta property="og:site_name" content="Tumumu的博客">
 <meta property="og:description" content="在多文件中查找指定的字符串，并显示查找到的位置">
+<meta property="og:image" content="http://tumumu.cn/../../../../../assets/blogImg/git_bash.jpg">
 <meta property="og:image" content="http://tumumu.cn/../../../../../assets/blogImg/weixinpay.jpg">
 <meta property="og:image" content="http://tumumu.cn/../../../../../assets/blogImg/alipay.jpg">
-<meta property="og:updated_time" content="2016-12-22T03:13:48.151Z">
+<meta property="og:updated_time" content="2016-12-22T03:20:06.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多文件中查找字符串">
 <meta name="twitter:description" content="在多文件中查找指定的字符串，并显示查找到的位置">
-<meta name="twitter:image" content="http://tumumu.cn/../../../../../assets/blogImg/weixinpay.jpg">
+<meta name="twitter:image" content="http://tumumu.cn/../../../../../assets/blogImg/git_bash.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Tumumu的博客" type="application/atom+xml">
   
@@ -258,7 +259,7 @@
 <p>-type f 只查找文件，可以省略</p>
 <p>-name “<em>.php” 是查找指定文件类型，这里是php文件，\</em>为通配符指代任意字符，省略为查找所有文件</p>
 <p>\<strings> 是需要查找的字符串</strings></p>
-<p><a href="http://baike.baidu.com/link?url=Okq91myEf5RLZlT7cqe34fyJ-ZiZ0nTRad-1KlpEDV4M5f5TLMber1pSFpcbuwN-VB-hjL1H4jAfmCtHWQM8g_" target="_blank" rel="external">xargs</a><br><a href="http://baike.baidu.com/link?url=ul4Z7pv4-zVt_JsvXr3bdGTb7VYjwGxBnh1fVCeD9AjHDctSSiEis8Hb9FOdPiAEQOSwGdOrVjFnu_llQUYfPa" target="_blank" rel="external">find</a><br><a href="http://baike.baidu.com/link?url=y2mouXOLTcCd5Yny98qfQLNVOrCh58wMbT_JPVzeT0k2UVODaJBiFG53h8aM-B61i74DVWvUz3lsiX4uyCy0rq" target="_blank" rel="external">grep</a></p>
+<p><a href="http://baike.baidu.com/link?url=Okq91myEf5RLZlT7cqe34fyJ-ZiZ0nTRad-1KlpEDV4M5f5TLMber1pSFpcbuwN-VB-hjL1H4jAfmCtHWQM8g_" target="_blank" rel="external">xargs</a> <a href="http://baike.baidu.com/link?url=ul4Z7pv4-zVt_JsvXr3bdGTb7VYjwGxBnh1fVCeD9AjHDctSSiEis8Hb9FOdPiAEQOSwGdOrVjFnu_llQUYfPa" target="_blank" rel="external">find</a> <a href="http://baike.baidu.com/link?url=y2mouXOLTcCd5Yny98qfQLNVOrCh58wMbT_JPVzeT0k2UVODaJBiFG53h8aM-B61i74DVWvUz3lsiX4uyCy0rq" target="_blank" rel="external">grep</a></p>
 <h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><pre><code>cat `find &lt;directory&gt; -name &quot;*.php&quot;` | grep &quot;&lt;strings&gt;&quot;
 </code></pre><p>这种方法速度较快，但缺点是无法显示查找到的文件路径。</p>
 <h3 id="第三种方法"><a href="#第三种方法" class="headerlink" title="第三种方法"></a>第三种方法</h3><pre><code>find &lt;directory&gt; -name &quot;*.php&quot; -exec grep &quot;&lt;strings&gt;&quot;{} + -n
@@ -272,6 +273,7 @@
 <p>findstr.exe一般在C:\Windows\System32目录下，要从任意路径调用该命令，需要将C:\Windows\System32添加到path环境变量中。</p>
 <h3 id="第二种方法-1"><a href="#第二种方法-1" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>在Notepad++中有一个多文件查找的功能</p>
 <h3 id="第三种方法-1"><a href="#第三种方法-1" class="headerlink" title="第三种方法"></a>第三种方法</h3><p>安装一些Linux Bash之类的带一些基本Linux命令，就可以使用上面Linux下的命令了，像Git Bash就可以使用一些基本的Linux命令。</p>
+<p><img src="../../../../../assets/blogImg/git_bash.jpg" alt="Git Bash"></p>
 <h2 id="谢谢请我吃土"><a href="#谢谢请我吃土" class="headerlink" title="谢谢请我吃土"></a>谢谢请我吃土</h2><p><img src="../../../../../assets/blogImg/weixinpay.jpg" alt="微信打赏"> <img src="../../../../../assets/blogImg/alipay.jpg" alt="支付宝打赏"></p>
 
       
@@ -284,7 +286,7 @@
         <p><span>本文标题:</span><a href="/2016/12/22/find-word-files/">多文件中查找字符串</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tumumu 的个人博客">Tumumu</a></p>
         <p><span>发布时间:</span>2016年12月22日 - 02时19分</p>
-        <p><span>最后更新:</span>2016年12月22日 - 11时13分</p>
+        <p><span>最后更新:</span>2016年12月22日 - 11时20分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/12/22/find-word-files/" title="多文件中查找字符串">http://tumumu.cn/2016/12/22/find-word-files/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2016/12/22/find-word-files/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
