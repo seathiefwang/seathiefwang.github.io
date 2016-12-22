@@ -13,7 +13,7 @@
 <meta property="og:description" content="Hexo搭建Github静态博客">
 <meta property="og:image" content="http://tumumu.cn/assets/blogImg/gitweb.jpg">
 <meta property="og:image" content="http://tumumu.cn/assets/blogImg/githubrepository.jpg">
-<meta property="og:updated_time" content="2016-12-16T02:50:12.750Z">
+<meta property="og:updated_time" content="2016-12-22T02:49:54.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github+Hexo搭建博客">
 <meta name="twitter:description" content="Hexo搭建Github静态博客">
@@ -143,7 +143,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Openwrt/" style="font-size: 10px;">Openwrt</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a>
+                        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/File/" style="font-size: 10px;">File</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Openwrt/" style="font-size: 10px;">Openwrt</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/find/" style="font-size: 10px;">find</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a>
                     </div>
                 </section>
                 
@@ -292,14 +292,14 @@ deploy:
 </code></pre><p>repository需要替换成自己的地址。</p>
 <p>运行下面的命令(简写命令:hexo d)，将blog部署到github。</p>
 <p><code>$ hexo deploy</code></p>
-<h1 id="4配置域名"><a href="#4配置域名" class="headerlink" title="4配置域名"></a>4配置域名</h1><p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如 <a href="http://xxxx.com" target="_blank" rel="external">http://xxxx.com</a> ，注意前面没有 http:// ,也没有www，然后使用hexo g &amp;&amp; hexo d上传部署。</p>
+<h1 id="4-配置域名"><a href="#4-配置域名" class="headerlink" title="4.配置域名"></a>4.配置域名</h1><p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如 <a href="http://xxxx.com" target="_blank" rel="external">http://xxxx.com</a> ，注意前面没有 http:// ,也没有www，然后使用hexo g &amp;&amp; hexo d上传部署。</p>
 <p>2、在域名解析提供商，下面以dnspod为例。</p>
 <p>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a></p>
 <p>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a></p>
 <p>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成 <a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a> ，然后根据CNAME再变成 <a href="http://xxx.com" target="_blank" rel="external">http://xxx.com</a> ，即中间是经过一次转换的）。</p>
 <p>上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。</p>
 <p>3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
-<h1 id="5附录"><a href="#5附录" class="headerlink" title="5附录"></a>5附录</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>hexo new &quot;postName&quot; #新建文章
+<h1 id="5-附录"><a href="#5-附录" class="headerlink" title="5.附录"></a>5.附录</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>hexo new &quot;postName&quot; #新建文章
 hexo new page &quot;pageName&quot; #新建页面
 hexo clean #清除生成的静态页面
 hexo generate #生成静态页面至public目录
@@ -333,7 +333,7 @@ hexo d == hexo deploy
         <p><span>本文标题:</span><a href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tumumu 的个人博客">Tumumu</a></p>
         <p><span>发布时间:</span>2016年12月15日 - 07时41分</p>
-        <p><span>最后更新:</span>2016年12月16日 - 10时50分</p>
+        <p><span>最后更新:</span>2016年12月22日 - 10时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/12/15/installBlog/" title="Github+Hexo搭建博客">http://tumumu.cn/2016/12/15/installBlog/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2016/12/15/installBlog/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -366,7 +366,7 @@ hexo d == hexo deploy
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-环境安装"><span class="toc-number">1.</span> <span class="toc-text">1.环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1安装git"><span class="toc-number">1.1.</span> <span class="toc-text">1.1安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2安装node-js"><span class="toc-number">1.2.</span> <span class="toc-text">1.2安装node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3安装Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">1.3安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置GitHub"><span class="toc-number">2.</span> <span class="toc-text">2.配置GitHub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-配置blog"><span class="toc-number">3.</span> <span class="toc-text">3.配置blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1安装blog"><span class="toc-number">3.1.</span> <span class="toc-text">3.1安装blog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2启动blog服务"><span class="toc-number">3.2.</span> <span class="toc-text">3.2启动blog服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3生成静态文件"><span class="toc-number">3.3.</span> <span class="toc-text">3.3生成静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4部署到GitHub"><span class="toc-number">3.4.</span> <span class="toc-text">3.4部署到GitHub</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4配置域名"><span class="toc-number">4.</span> <span class="toc-text">4配置域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5附录"><span class="toc-number">5.</span> <span class="toc-text">5附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">5.1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合命令"><span class="toc-number">5.2.</span> <span class="toc-text">复合命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题推荐"><span class="toc-number">5.3.</span> <span class="toc-text">主题推荐</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-环境安装"><span class="toc-number">1.</span> <span class="toc-text">1.环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1安装git"><span class="toc-number">1.1.</span> <span class="toc-text">1.1安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2安装node-js"><span class="toc-number">1.2.</span> <span class="toc-text">1.2安装node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3安装Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">1.3安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置GitHub"><span class="toc-number">2.</span> <span class="toc-text">2.配置GitHub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-配置blog"><span class="toc-number">3.</span> <span class="toc-text">3.配置blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1安装blog"><span class="toc-number">3.1.</span> <span class="toc-text">3.1安装blog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2启动blog服务"><span class="toc-number">3.2.</span> <span class="toc-text">3.2启动blog服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3生成静态文件"><span class="toc-number">3.3.</span> <span class="toc-text">3.3生成静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4部署到GitHub"><span class="toc-number">3.4.</span> <span class="toc-text">3.4部署到GitHub</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-配置域名"><span class="toc-number">4.</span> <span class="toc-text">4.配置域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-附录"><span class="toc-number">5.</span> <span class="toc-text">5.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">5.1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合命令"><span class="toc-number">5.2.</span> <span class="toc-text">复合命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题推荐"><span class="toc-number">5.3.</span> <span class="toc-text">主题推荐</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -446,7 +446,7 @@ hexo d == hexo deploy
             <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/openwrt-libcurl-php/">openwrt通过libcurl上传图片，PHP接收文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/find-word-files/">多文件中查找字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/openwrt-libcurl-php/">openwrt通过libcurl上传图片，PHP接收文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
