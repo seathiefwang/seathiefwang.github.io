@@ -3,22 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>多文件中查找字符串 | Tumumu</title>
+  <title>Linux&#39;s commands | Tumumu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在多文件中查找指定的字符串，并显示查找到的位置">
+  <meta name="description" content="Linux系统下常用有趣的命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多文件中查找字符串">
-<meta property="og:url" content="http://tumumu.cn/2016/12/22/find-word-files/index.html">
+<meta property="og:title" content="Linux's commands">
+<meta property="og:url" content="http://tumumu.cn/2017/01/09/linux-command/index.html">
 <meta property="og:site_name" content="Tumumu">
-<meta property="og:description" content="在多文件中查找指定的字符串，并显示查找到的位置">
-<meta property="og:image" content="http://tumumu.cn/../../../../../assets/blogImg/git_bash.jpg">
-<meta property="og:image" content="http://tumumu.cn/../../../../../assets/blogImg/weixinpay.jpg">
-<meta property="og:image" content="http://tumumu.cn/../../../../../assets/blogImg/alipay.jpg">
-<meta property="og:updated_time" content="2016-12-22T03:35:52.641Z">
+<meta property="og:description" content="Linux系统下常用有趣的命令">
+<meta property="og:updated_time" content="2017-01-09T14:46:36.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多文件中查找字符串">
-<meta name="twitter:description" content="在多文件中查找指定的字符串，并显示查找到的位置">
-<meta name="twitter:image" content="http://tumumu.cn/../../../../../assets/blogImg/git_bash.jpg">
+<meta name="twitter:title" content="Linux's commands">
+<meta name="twitter:description" content="Linux系统下常用有趣的命令">
   
     <link rel="alternative" href="/atom.xml" title="Tumumu" type="application/atom+xml">
   
@@ -216,11 +212,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-find-word-files" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-linux-command" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/22/find-word-files/" class="article-date">
-      <time datetime="2016-12-21T18:19:08.000Z" itemprop="datePublished">2016-12-22</time>
+      <a href="/2017/01/09/linux-command/" class="article-date">
+      <time datetime="2017-01-09T06:21:08.000Z" itemprop="datePublished">2017-01-09</time>
 </a>
     </div>
   
@@ -233,7 +229,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      多文件中查找字符串
+      Linux&#39;s commands
     </h1>
   
 
@@ -244,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/File/">File</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/find/">find</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grep/">grep</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -254,27 +250,139 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Linux环境下"><a href="#Linux环境下" class="headerlink" title="Linux环境下"></a>Linux环境下</h2><h3 id="第一种方法："><a href="#第一种方法：" class="headerlink" title="第一种方法："></a>第一种方法：</h3><pre><code>find &lt;directory&gt; -type f -name &quot;*.php&quot; | xargs grep &quot;&lt;strings&gt;&quot;
-</code></pre><p>\<directory> 是指定需要查找的目录，如果是当前文件夹可以省略</directory></p>
-<p>-type f 只查找文件，可以省略</p>
-<p>-name “<em>.php” 是查找指定文件类型，这里是php文件，\</em>为通配符指代任意字符，省略为查找所有文件</p>
-<p>\<strings> 是需要查找的字符串</strings></p>
-<p><a href="http://baike.baidu.com/link?url=Okq91myEf5RLZlT7cqe34fyJ-ZiZ0nTRad-1KlpEDV4M5f5TLMber1pSFpcbuwN-VB-hjL1H4jAfmCtHWQM8g_" target="_blank" rel="external">xargs</a> <a href="http://baike.baidu.com/link?url=ul4Z7pv4-zVt_JsvXr3bdGTb7VYjwGxBnh1fVCeD9AjHDctSSiEis8Hb9FOdPiAEQOSwGdOrVjFnu_llQUYfPa" target="_blank" rel="external">find</a> <a href="http://baike.baidu.com/link?url=y2mouXOLTcCd5Yny98qfQLNVOrCh58wMbT_JPVzeT0k2UVODaJBiFG53h8aM-B61i74DVWvUz3lsiX4uyCy0rq" target="_blank" rel="external">grep</a></p>
-<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><pre><code>cat `find &lt;directory&gt; -name &quot;*.php&quot;` | grep &quot;&lt;strings&gt;&quot;
-</code></pre><p>这种方法速度较快，但缺点是无法显示查找到的文件路径。</p>
-<h3 id="第三种方法"><a href="#第三种方法" class="headerlink" title="第三种方法"></a>第三种方法</h3><pre><code>find &lt;directory&gt; -name &quot;*.php&quot; -exec grep &quot;&lt;strings&gt;&quot;{} + -n
-</code></pre><h3 id="第四种方法"><a href="#第四种方法" class="headerlink" title="第四种方法"></a>第四种方法</h3><pre><code>grep &quot;&lt;strings&gt;&quot; &lt;directory&gt; -Rn
-</code></pre><h3 id="第五种方法"><a href="#第五种方法" class="headerlink" title="第五种方法"></a>第五种方法</h3><pre><code>grep &quot;&lt;strings&gt;&quot; `find &lt;directory&gt; -name &quot;*.php&quot;`
-</code></pre><h2 id="Windows环境下"><a href="#Windows环境下" class="headerlink" title="Windows环境下"></a>Windows环境下</h2><h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><pre><code>findstr /s /i &quot;&lt;strings&gt;&quot; *.php
-</code></pre><p>/s 表示当前目录及所有子目录</p>
-<p>/i 表示不区分大小写</p>
-<p>提示：</p>
-<p>可以使用help findstr来查看帮助文档</p>
-<p>findstr.exe一般在C:\Windows\System32目录下，要从任意路径调用该命令，需要将C:\Windows\System32添加到path环境变量中。</p>
-<h3 id="第二种方法-1"><a href="#第二种方法-1" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>在Notepad++中有一个多文件查找的功能</p>
-<h3 id="第三种方法-1"><a href="#第三种方法-1" class="headerlink" title="第三种方法"></a>第三种方法</h3><p>安装一些Linux Bash之类的带一些基本Linux命令，就可以使用上面Linux下的命令了，像Git Bash就可以使用一些基本的Linux命令。</p>
-<p><img src="../../../../../assets/blogImg/git_bash.jpg" alt="Git Bash"></p>
-<h2 id="谢谢请我吃土"><a href="#谢谢请我吃土" class="headerlink" title="谢谢请我吃土"></a>谢谢请我吃土</h2><p><img src="../../../../../assets/blogImg/weixinpay.jpg" alt="微信打赏"> <img src="../../../../../assets/blogImg/alipay.jpg" alt="支付宝打赏"></p>
+        <h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><p>Linux下有许多的命令，在这里我记录一些常用或者有趣的命令。</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th style="text-align:right">Platform</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">显示目录下的文件与目录列表</td>
+</tr>
+<tr>
+<td>cd</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">去往指定的工作目录</td>
+</tr>
+<tr>
+<td>find</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">查找文件的工具</td>
+</tr>
+<tr>
+<td>grep</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">在指定内容中搜索指定的字符</td>
+</tr>
+<tr>
+<td>vi</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">文本编辑工具</td>
+</tr>
+<tr>
+<td>bc</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">一个基于命令行的计算器工具</td>
+</tr>
+<tr>
+<td>sl</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">常使用的ls工具的错误版，这个命令会在屏幕中打印一个移动的小火车</td>
+</tr>
+<tr>
+<td>supervisor</td>
+<td style="text-align:right">python</td>
+<td style="text-align:center">守护进程，可以管理你的服务器进程</td>
+</tr>
+<tr>
+<td>sslocal</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">科学上网工具，可以在后台运行</td>
+</tr>
+<tr>
+<td>proxychains</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">让终端命令通过代理链接网络，可配合sslocal使用</td>
+</tr>
+<tr>
+<td>figlet</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">可生成ASCII风格标题字，适合添加到你的代码注释中</td>
+</tr>
+<tr>
+<td>yes</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">不停的打印输入的字符，适合发呆和自动化处理</td>
+</tr>
+<tr>
+<td>cowsay</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">一头会说话的奶牛，还可以设置性别</td>
+</tr>
+<tr>
+<td>ascii</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">快速查看ASCII码，像一本没啥太大作用的字典</td>
+</tr>
+<tr>
+<td>tmux</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">一个神器，可以让终端多窗口运行，SSH链接时，必用</td>
+</tr>
+<tr>
+<td>dstat</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">监控你的系统资源使用状态</td>
+</tr>
+<tr>
+<td>touch</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">创建一个空文件或者文件夹</td>
+</tr>
+<tr>
+<td>who</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">查看用户登录信息</td>
+</tr>
+<tr>
+<td>tpp</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">终端下的keynote</td>
+</tr>
+<tr>
+<td>htop</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">进程，内存，IO，CPU的监控工具</td>
+</tr>
+<tr>
+<td>curl</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">http工具箱</td>
+</tr>
+<tr>
+<td>wget</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">好用的下载器</td>
+</tr>
+<tr>
+<td>calcurse</td>
+<td style="text-align:right">c/c++</td>
+<td style="text-align:center">日历系统</td>
+</tr>
+<tr>
+<td>等</td>
+<td style="text-align:right">我</td>
+<td style="text-align:center">续一秒</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -283,13 +391,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/22/find-word-files/">多文件中查找字符串</a></p>
+        <p><span>本文标题:</span><a href="/2017/01/09/linux-command/">Linux&#39;s commands</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tumumu 的个人博客">Tumumu</a></p>
-        <p><span>发布时间:</span>2016年12月22日 - 02时19分</p>
-        <p><span>最后更新:</span>2016年12月22日 - 11时35分</p>
+        <p><span>发布时间:</span>2017年01月09日 - 14时21分</p>
+        <p><span>最后更新:</span>2017年01月09日 - 22时46分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/22/find-word-files/" title="多文件中查找字符串">http://tumumu.cn/2016/12/22/find-word-files/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2016/12/22/find-word-files/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/09/linux-command/" title="Linux&#39;s commands">http://tumumu.cn/2017/01/09/linux-command/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2017/01/09/linux-command/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -302,18 +410,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/01/09/linux-command/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Linux&#39;s commands
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/16/openwrt-libcurl-php/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">openwrt通过libcurl上传图片，PHP接收文件</div>
+    <a href="/2016/12/22/find-word-files/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多文件中查找字符串</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -324,7 +423,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux环境下"><span class="toc-number">1.</span> <span class="toc-text">Linux环境下</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种方法："><span class="toc-number">1.1.</span> <span class="toc-text">第一种方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种方法"><span class="toc-number">1.2.</span> <span class="toc-text">第二种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三种方法"><span class="toc-number">1.3.</span> <span class="toc-text">第三种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四种方法"><span class="toc-number">1.4.</span> <span class="toc-text">第四种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五种方法"><span class="toc-number">1.5.</span> <span class="toc-text">第五种方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows环境下"><span class="toc-number">2.</span> <span class="toc-text">Windows环境下</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种方法"><span class="toc-number">2.1.</span> <span class="toc-text">第一种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种方法-1"><span class="toc-number">2.2.</span> <span class="toc-text">第二种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三种方法-1"><span class="toc-number">2.3.</span> <span class="toc-text">第三种方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谢谢请我吃土"><span class="toc-number">3.</span> <span class="toc-text">谢谢请我吃土</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Command"><span class="toc-number">1.</span> <span class="toc-text">Command</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -372,7 +471,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/12/22/find-word-files/" data-title="多文件中查找字符串" data-url="http://tumumu.cn/2016/12/22/find-word-files/"></div>
+    <div class="ds-thread" data-thread-key="2017/01/09/linux-command/" data-title="Linux&#39;s commands" data-url="http://tumumu.cn/2017/01/09/linux-command/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -395,13 +494,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/01/09/linux-command/" title="上一篇: Linux&#39;s commands">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/12/16/openwrt-libcurl-php/" title="下一篇: openwrt通过libcurl上传图片，PHP接收文件">
+            <a href="/2016/12/22/find-word-files/" title="下一篇: 多文件中查找字符串">
                 <i class="fa fa-angle-right"></i>
             </a>
         
