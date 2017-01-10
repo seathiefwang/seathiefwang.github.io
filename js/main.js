@@ -141,4 +141,11 @@ require([], function (){
         $(".article a[href]").attr("target", "_blank")
     }
     $(".archive-article-title").attr("target", "_blank");
+	
+	//新增加的-ddg
+	if($(".instagram").length) {
+        require(['/js/photo.js', '/fancybox/jquery.fancybox.js', '/js/jquery.lazyload.js'], function(obj) {
+            obj.init();
+        });
+    }
 });
