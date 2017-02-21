@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Github+Hexo搭建博客 | Tumumu</title>
+  <title>python在后台运行程序 | Tumumu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo搭建Github静态博客">
+  <meta name="description" content="让python程序在后台运行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github+Hexo搭建博客">
-<meta property="og:url" content="http://tumumu.cn/2016/12/15/installBlog/index.html">
+<meta property="og:title" content="python在后台运行程序">
+<meta property="og:url" content="http://tumumu.cn/2017/02/20/python-nohup/index.html">
 <meta property="og:site_name" content="Tumumu">
-<meta property="og:description" content="Hexo搭建Github静态博客">
-<meta property="og:image" content="http://tumumu.cn/assets/blogImg/gitweb.jpg">
-<meta property="og:image" content="http://tumumu.cn/assets/blogImg/githubrepository.jpg">
-<meta property="og:updated_time" content="2016-12-22T02:49:54.810Z">
+<meta property="og:description" content="让python程序在后台运行">
+<meta property="og:updated_time" content="2017-02-20T02:37:00.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Github+Hexo搭建博客">
-<meta name="twitter:description" content="Hexo搭建Github静态博客">
-<meta name="twitter:image" content="http://tumumu.cn/assets/blogImg/gitweb.jpg">
+<meta name="twitter:title" content="python在后台运行程序">
+<meta name="twitter:description" content="让python程序在后台运行">
   
     <link rel="alternative" href="/atom.xml" title="Tumumu" type="application/atom+xml">
   
@@ -215,11 +212,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-installBlog" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python-nohup" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/15/installBlog/" class="article-date">
-      <time datetime="2016-12-14T23:41:36.000Z" itemprop="datePublished">2016-12-15</time>
+      <a href="/2017/02/20/python-nohup/" class="article-date">
+      <time datetime="2017-02-19T18:25:00.000Z" itemprop="datePublished">2017-02-20</time>
 </a>
     </div>
   
@@ -232,7 +229,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Github+Hexo搭建博客
+      python在后台运行程序
     </h1>
   
 
@@ -243,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">[python]</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -253,75 +250,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1.环境安装"></a>1.环境安装</h1><p>工作环境：Windows、git 2.7</p>
-<h2 id="1-1安装git"><a href="#1-1安装git" class="headerlink" title="1.1安装git"></a>1.1安装git</h2><p>到git的官方网站下载git的安装包’<a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a>‘，然后按照提示进行安装。</p>
-<p><img src="http://tumumu.cn/assets/blogImg/gitweb.jpg" alt="git官网"></p>
-<h2 id="1-2安装node-js"><a href="#1-2安装node-js" class="headerlink" title="1.2安装node.js"></a>1.2安装node.js</h2><p>node.js<a href="http://nodejs.org/download/" target="_blank" rel="external">下载地址</a></p>
-<p>可以下载 node-v0.10.33-x64.msi</p>
-<p>然后按提示进行安装</p>
-<h2 id="1-3安装Hexo"><a href="#1-3安装Hexo" class="headerlink" title="1.3安装Hexo"></a>1.3安装Hexo</h2><p>利用npm命令即可安装，在桌面任意位置单击鼠标右键，选择Git Base。</p>
-<p>打开之后输入命令：</p>
-<p><code>$ npm install -g hexo</code></p>
-<h1 id="2-配置GitHub"><a href="#2-配置GitHub" class="headerlink" title="2.配置GitHub"></a>2.配置GitHub</h1><p>建立Repository</p>
-<p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法。(我的已经添加过了所以有警告)</p>
-<p><img src="http://tumumu.cn/assets/blogImg/githubrepository.jpg" alt="Create a new repository"></p>
-<h1 id="3-配置blog"><a href="#3-配置blog" class="headerlink" title="3.配置blog"></a>3.配置blog</h1><h2 id="3-1安装blog"><a href="#3-1安装blog" class="headerlink" title="3.1安装blog"></a>3.1安装blog</h2><p>在电脑中建立一个名字叫「blog」的文件夹（比如我建在了D:\blog），然后在此文件夹中右键打开Git Bash。执行下面的命令：</p>
-<p><code>$ hexo init</code></p>
-<p>Hexo随后会自动在目标文件夹建立网站所需要的文件。然后按照提示，运行 npm install（在 D:\blog文件夹下）</p>
-<p><code>$ npm install</code></p>
-<p>会在D:\blog目录中安装 node_modules。</p>
-<h2 id="3-2启动blog服务"><a href="#3-2启动blog服务" class="headerlink" title="3.2启动blog服务"></a>3.2启动blog服务</h2><p>运行下面的命令（在 D:\blog下）</p>
-<p><code>$ hexo server</code></p>
-<p>表明Hexo Server已经启动了，在浏览器中打开 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，这时可以看到Hexo已为你生成了一篇blog。</p>
-<p>你可以按Ctrl+C 停止Server。</p>
-<h2 id="3-3生成静态文件"><a href="#3-3生成静态文件" class="headerlink" title="3.3生成静态文件"></a>3.3生成静态文件</h2><p>执行下面的命令(简写方式:hexo g)，将markdown文件生成静态网页。</p>
-<p><code>$ hexo generate</code></p>
-<p>该命令执行完后，会在 D:\blog\public\ 目录下生成一系列html，css等文件。</p>
-<h2 id="3-4部署到GitHub"><a href="#3-4部署到GitHub" class="headerlink" title="3.4部署到GitHub"></a>3.4部署到GitHub</h2><p>部署到Github前需要配置_config.yml文件，首先找到下面的内容</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type:
-</code></pre><p>然后将它们修改为</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: git@github.com:seathifwang/seathiefwang.github.io.git
-  branch: master
-</code></pre><p>repository需要替换成自己的地址。</p>
-<p>运行下面的命令(简写命令:hexo d)，将blog部署到github。</p>
-<p><code>$ hexo deploy</code></p>
-<h1 id="4-配置域名"><a href="#4-配置域名" class="headerlink" title="4.配置域名"></a>4.配置域名</h1><p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如 <a href="http://xxxx.com" target="_blank" rel="external">http://xxxx.com</a> ，注意前面没有 http:// ,也没有www，然后使用hexo g &amp;&amp; hexo d上传部署。</p>
-<p>2、在域名解析提供商，下面以dnspod为例。</p>
-<p>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a></p>
-<p>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a></p>
-<p>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成 <a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a> ，然后根据CNAME再变成 <a href="http://xxx.com" target="_blank" rel="external">http://xxx.com</a> ，即中间是经过一次转换的）。</p>
-<p>上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。</p>
-<p>3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
-<h1 id="5-附录"><a href="#5-附录" class="headerlink" title="5.附录"></a>5.附录</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo clean #清除生成的静态页面
-hexo generate #生成静态页面至public目录
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub
-hexo help  # 查看帮助
-hexo version  #查看Hexo的版本
-</code></pre><h2 id="复合命令"><a href="#复合命令" class="headerlink" title="复合命令"></a>复合命令</h2><pre><code>hexo deploy -g  #生成加部署
-hexo server -g  #生成加预览
-</code></pre><p>命令的简写为：</p>
-<pre><code>hexo n == hexo new
-hexo g == hexo generate
-hexo s == hexo server
-hexo d == hexo deploy
-</code></pre><h2 id="主题推荐"><a href="#主题推荐" class="headerlink" title="主题推荐"></a>主题推荐</h2><p>Cover- A chic theme with facebook-like cover photo</p>
-<p>Oishi- A white theme based on Landscape plus and Writing.</p>
-<p>Sidebar- Another theme based on Light with a simple sidebar</p>
-<p>TKL- A responsive design theme for Hexo. 一个设计优雅的响应式主题</p>
-<p>Tinnypp- A clean, simple theme based on Tinny</p>
-<p>Writing- A small and simple hexo theme based on Light</p>
-<p>Yilia- Responsive and simple style 优雅简洁响应式主题。</p>
-<p>Pacman voidy- A theme with dynamic tagcloud and dynamic snow</p>
+        <h1 id="Python的程序在Linux后台运行"><a href="#Python的程序在Linux后台运行" class="headerlink" title="Python的程序在Linux后台运行"></a>Python的程序在Linux后台运行</h1><h2 id="nohup-命令"><a href="#nohup-命令" class="headerlink" title="nohup 命令"></a>nohup 命令</h2><p>nohup </p>
+<blockquote>
+<p>nohup 命令 </p>
+<p>用途：Linux命令用法，不挂断地运行命令。 </p>
+<p>语法：nohup Command [ Arg … ] [　&amp; ] </p>
+</blockquote>
+<p>　　描述：nohup 命令运行由 Command 参数和任何相关的 Arg 参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。 </p>
+<p>　　如果不将 nohup 命令的输出重定向，输出将附加到当前目录的 nohup.out 文件中。如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。如果标准错误是一个终端，那么把指定的命令写给标准错误的所有输出作为标准输出重定向到相同的文件描述符。 </p>
+<p>　　退出状态：该命令返回下列出口值： </p>
+<p>　　126 可以查找但不能调用 Command 参数指定的命令。 </p>
+<p>　　127 nohup 命令发生错误或不能查找由 Command 参数指定的命令。 </p>
+<p>　　否则，nohup 命令的退出状态是 Command 参数指定命令的退出状态。 </p>
+<p>　　nohup命令及其输出文件 </p>
+<p>　　nohup命令：如果你正在运行一个进程，而且你觉得在退出帐户时该进程还不会结束，那么可以使用nohup命令。该命令可以在你退出帐户/关闭终端之后继续运行相应的进程。nohup就是不挂起的意思( n ohang up)。 </p>
+<p>　　该命令的一般形式为：nohup command &amp; </p>
+<p>　　使用nohup命令提交作业 </p>
+<p>　　如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件： </p>
+<pre><code>nohup command &gt; myout.file 2&gt;&amp;1 &amp; 
+</code></pre><p>　　在上面的例子中，输出被重定向到myout.file文件中。 </p>
+<p>　　使用 jobs 查看任务。 </p>
+<p>　　使用 fg %n　关闭。 </p>
+<p>　　另外有两个常用的ftp工具ncftpget和ncftpput，可以实现后台的ftp上传和下载，这样我就可以利用这些命令在后台上传和下载文件了。</p>
+<h2 id="程序在后台运行-amp-开机启动"><a href="#程序在后台运行-amp-开机启动" class="headerlink" title="程序在后台运行 &amp; 开机启动"></a>程序在后台运行 &amp; 开机启动</h2><p>nohup python yourscript.py &amp;可以让你的程序在后台运行，控制台输出导向nohup.out文件 </p>
+<p>要想开机启动，写到开机启动文本里面/etc/rc.d/rc.local</p>
+<h2 id="使用screen执行命令"><a href="#使用screen执行命令" class="headerlink" title="使用screen执行命令"></a>使用screen执行命令</h2><p>通过nohup和&amp;符号在后台执行命令后，即使你退出登录，这个命令也会一直执行。但是，你无法重新连接到这个会话，要想重新连接到这个会话，你可以使用screen命令。.</p>
+<p>Linux的screen命令提供了分离和重新连接一个会话的功能。当你重新连接这个会话的时候，你的终端和你分离的时候一模一样。</p>
 
       
     </div>
@@ -330,13 +284,13 @@ hexo d == hexo deploy
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/20/python-nohup/">python在后台运行程序</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tumumu 的个人博客">Tumumu</a></p>
-        <p><span>发布时间:</span>2016年12月15日 - 07时41分</p>
-        <p><span>最后更新:</span>2016年12月22日 - 10时49分</p>
+        <p><span>发布时间:</span>2017年02月20日 - 02时25分</p>
+        <p><span>最后更新:</span>2017年02月20日 - 10时37分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/15/installBlog/" title="Github+Hexo搭建博客">http://tumumu.cn/2016/12/15/installBlog/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2016/12/15/installBlog/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/20/python-nohup/" title="python在后台运行程序">http://tumumu.cn/2017/02/20/python-nohup/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2017/02/20/python-nohup/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -349,15 +303,20 @@ hexo d == hexo deploy
 
 <nav id="article-nav">
   
-    <a href="/2016/12/16/openwrt-libcurl-php/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/21/mysql-find_in_set/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          openwrt通过libcurl上传图片，PHP接收文件
+          mysql数据库中find_in_set()和in()用法
         
       </div>
     </a>
   
+  
+    <a href="/2017/02/17/linux-directory-permition/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux修改文件所属用户和组</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -366,7 +325,7 @@ hexo d == hexo deploy
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-环境安装"><span class="toc-number">1.</span> <span class="toc-text">1.环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1安装git"><span class="toc-number">1.1.</span> <span class="toc-text">1.1安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2安装node-js"><span class="toc-number">1.2.</span> <span class="toc-text">1.2安装node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3安装Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">1.3安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置GitHub"><span class="toc-number">2.</span> <span class="toc-text">2.配置GitHub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-配置blog"><span class="toc-number">3.</span> <span class="toc-text">3.配置blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1安装blog"><span class="toc-number">3.1.</span> <span class="toc-text">3.1安装blog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2启动blog服务"><span class="toc-number">3.2.</span> <span class="toc-text">3.2启动blog服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3生成静态文件"><span class="toc-number">3.3.</span> <span class="toc-text">3.3生成静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4部署到GitHub"><span class="toc-number">3.4.</span> <span class="toc-text">3.4部署到GitHub</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-配置域名"><span class="toc-number">4.</span> <span class="toc-text">4.配置域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-附录"><span class="toc-number">5.</span> <span class="toc-text">5.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">5.1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合命令"><span class="toc-number">5.2.</span> <span class="toc-text">复合命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题推荐"><span class="toc-number">5.3.</span> <span class="toc-text">主题推荐</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python的程序在Linux后台运行"><span class="toc-number">1.</span> <span class="toc-text">Python的程序在Linux后台运行</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#nohup-命令"><span class="toc-number">1.1.</span> <span class="toc-text">nohup 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序在后台运行-amp-开机启动"><span class="toc-number">1.2.</span> <span class="toc-text">程序在后台运行 & 开机启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用screen执行命令"><span class="toc-number">1.3.</span> <span class="toc-text">使用screen执行命令</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -414,7 +373,7 @@ hexo d == hexo deploy
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/12/15/installBlog/" data-title="Github+Hexo搭建博客" data-url="http://tumumu.cn/2016/12/15/installBlog/"></div>
+    <div class="ds-thread" data-thread-key="2017/02/20/python-nohup/" data-title="python在后台运行程序" data-url="http://tumumu.cn/2017/02/20/python-nohup/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -437,13 +396,15 @@ hexo d == hexo deploy
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/16/openwrt-libcurl-php/" title="上一篇: openwrt通过libcurl上传图片，PHP接收文件">
+            <a href="/2017/02/21/mysql-find_in_set/" title="上一篇: mysql数据库中find_in_set()和in()用法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/02/17/linux-directory-permition/" title="下一篇: linux修改文件所属用户和组">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/mysql-find_in_set/">mysql数据库中find_in_set()和in()用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/20/python-nohup/">python在后台运行程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/linux-directory-permition/">linux修改文件所属用户和组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/12/python-strip/">python去除空格和换行符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/get-douban-data/">从网站爬取数据(入门级)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/linux-command/">Linux's commands</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/find-word-files/">多文件中查找字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/openwrt-libcurl-php/">openwrt通过libcurl上传图片，PHP接收文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></li></ul>
