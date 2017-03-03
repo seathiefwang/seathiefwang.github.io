@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Github+Hexo搭建博客 | Tumumu</title>
+  <title>Mysql修改表编码格式 | Tumumu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo搭建Github静态博客">
+  <meta name="description" content="Mysql修改表编码格式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github+Hexo搭建博客">
-<meta property="og:url" content="http://tumumu.cn/2016/12/15/installBlog/index.html">
+<meta property="og:title" content="Mysql修改表编码格式">
+<meta property="og:url" content="http://tumumu.cn/2017/03/03/mysql-table-charater/index.html">
 <meta property="og:site_name" content="Tumumu">
-<meta property="og:description" content="Hexo搭建Github静态博客">
-<meta property="og:image" content="http://tumumu.cn/assets/blogImg/gitweb.jpg">
-<meta property="og:image" content="http://tumumu.cn/assets/blogImg/githubrepository.jpg">
-<meta property="og:updated_time" content="2016-12-22T02:49:54.810Z">
+<meta property="og:description" content="Mysql修改表编码格式">
+<meta property="og:updated_time" content="2017-03-03T06:10:48.389Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Github+Hexo搭建博客">
-<meta name="twitter:description" content="Hexo搭建Github静态博客">
-<meta name="twitter:image" content="http://tumumu.cn/assets/blogImg/gitweb.jpg">
+<meta name="twitter:title" content="Mysql修改表编码格式">
+<meta name="twitter:description" content="Mysql修改表编码格式">
   
     <link rel="alternative" href="/atom.xml" title="Tumumu" type="application/atom+xml">
   
@@ -215,11 +212,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-installBlog" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mysql-table-charater" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/15/installBlog/" class="article-date">
-      <time datetime="2016-12-14T23:41:36.000Z" itemprop="datePublished">2016-12-15</time>
+      <a href="/2017/03/03/mysql-table-charater/" class="article-date">
+      <time datetime="2017-03-02T19:46:55.000Z" itemprop="datePublished">2017-03-03</time>
 </a>
     </div>
   
@@ -232,7 +229,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Github+Hexo搭建博客
+      Mysql修改表编码格式
     </h1>
   
 
@@ -243,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">[mysql]</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -253,76 +250,178 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1.环境安装"></a>1.环境安装</h1><p>工作环境：Windows、git 2.7</p>
-<h2 id="1-1安装git"><a href="#1-1安装git" class="headerlink" title="1.1安装git"></a>1.1安装git</h2><p>到git的官方网站下载git的安装包’<a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a>‘，然后按照提示进行安装。</p>
-<p><img src="http://tumumu.cn/assets/blogImg/gitweb.jpg" alt="git官网"></p>
-<h2 id="1-2安装node-js"><a href="#1-2安装node-js" class="headerlink" title="1.2安装node.js"></a>1.2安装node.js</h2><p>node.js<a href="http://nodejs.org/download/" target="_blank" rel="external">下载地址</a></p>
-<p>可以下载 node-v0.10.33-x64.msi</p>
-<p>然后按提示进行安装</p>
-<h2 id="1-3安装Hexo"><a href="#1-3安装Hexo" class="headerlink" title="1.3安装Hexo"></a>1.3安装Hexo</h2><p>利用npm命令即可安装，在桌面任意位置单击鼠标右键，选择Git Base。</p>
-<p>打开之后输入命令：</p>
-<p><code>$ npm install -g hexo</code></p>
-<h1 id="2-配置GitHub"><a href="#2-配置GitHub" class="headerlink" title="2.配置GitHub"></a>2.配置GitHub</h1><p>建立Repository</p>
-<p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法。(我的已经添加过了所以有警告)</p>
-<p><img src="http://tumumu.cn/assets/blogImg/githubrepository.jpg" alt="Create a new repository"></p>
-<h1 id="3-配置blog"><a href="#3-配置blog" class="headerlink" title="3.配置blog"></a>3.配置blog</h1><h2 id="3-1安装blog"><a href="#3-1安装blog" class="headerlink" title="3.1安装blog"></a>3.1安装blog</h2><p>在电脑中建立一个名字叫「blog」的文件夹（比如我建在了D:\blog），然后在此文件夹中右键打开Git Bash。执行下面的命令：</p>
-<p><code>$ hexo init</code></p>
-<p>Hexo随后会自动在目标文件夹建立网站所需要的文件。然后按照提示，运行 npm install（在 D:\blog文件夹下）</p>
-<p><code>$ npm install</code></p>
-<p>会在D:\blog目录中安装 node_modules。</p>
-<h2 id="3-2启动blog服务"><a href="#3-2启动blog服务" class="headerlink" title="3.2启动blog服务"></a>3.2启动blog服务</h2><p>运行下面的命令（在 D:\blog下）</p>
-<p><code>$ hexo server</code></p>
-<p>表明Hexo Server已经启动了，在浏览器中打开 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，这时可以看到Hexo已为你生成了一篇blog。</p>
-<p>你可以按Ctrl+C 停止Server。</p>
-<h2 id="3-3生成静态文件"><a href="#3-3生成静态文件" class="headerlink" title="3.3生成静态文件"></a>3.3生成静态文件</h2><p>执行下面的命令(简写方式:hexo g)，将markdown文件生成静态网页。</p>
-<p><code>$ hexo generate</code></p>
-<p>该命令执行完后，会在 D:\blog\public\ 目录下生成一系列html，css等文件。</p>
-<h2 id="3-4部署到GitHub"><a href="#3-4部署到GitHub" class="headerlink" title="3.4部署到GitHub"></a>3.4部署到GitHub</h2><p>部署到Github前需要配置_config.yml文件，首先找到下面的内容</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type:
-</code></pre><p>然后将它们修改为</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: git@github.com:seathifwang/seathiefwang.github.io.git
-  branch: master
-</code></pre><p>repository需要替换成自己的地址。</p>
-<p>运行下面的命令(简写命令:hexo d)，将blog部署到github。</p>
-<p><code>$ hexo deploy</code></p>
-<h1 id="4-配置域名"><a href="#4-配置域名" class="headerlink" title="4.配置域名"></a>4.配置域名</h1><p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如 <a href="http://xxxx.com" target="_blank" rel="external">http://xxxx.com</a> ，注意前面没有 http:// ,也没有www，然后使用hexo g &amp;&amp; hexo d上传部署。</p>
-<p>2、在域名解析提供商，下面以dnspod为例。</p>
-<p>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a></p>
-<p>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a></p>
-<p>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成 <a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a> ，然后根据CNAME再变成 <a href="http://xxx.com" target="_blank" rel="external">http://xxx.com</a> ，即中间是经过一次转换的）。</p>
-<p>上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。</p>
-<p>3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
-<h1 id="5-附录"><a href="#5-附录" class="headerlink" title="5.附录"></a>5.附录</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo clean #清除生成的静态页面
-hexo generate #生成静态页面至public目录
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub
-hexo help  # 查看帮助
-hexo version  #查看Hexo的版本
-</code></pre><h2 id="复合命令"><a href="#复合命令" class="headerlink" title="复合命令"></a>复合命令</h2><pre><code>hexo deploy -g  #生成加部署
-hexo server -g  #生成加预览
-</code></pre><p>命令的简写为：</p>
-<pre><code>hexo n == hexo new
-hexo g == hexo generate
-hexo s == hexo server
-hexo d == hexo deploy
-</code></pre><h2 id="主题推荐"><a href="#主题推荐" class="headerlink" title="主题推荐"></a>主题推荐</h2><p>Cover- A chic theme with facebook-like cover photo</p>
-<p>Oishi- A white theme based on Landscape plus and Writing.</p>
-<p>Sidebar- Another theme based on Light with a simple sidebar</p>
-<p>TKL- A responsive design theme for Hexo. 一个设计优雅的响应式主题</p>
-<p>Tinnypp- A clean, simple theme based on Tinny</p>
-<p>Writing- A small and simple hexo theme based on Light</p>
-<p>Yilia- Responsive and simple style 优雅简洁响应式主题。</p>
-<p>Pacman voidy- A theme with dynamic tagcloud and dynamic snow</p>
-
+        <h1 id="查看mysql表结构的三种方法"><a href="#查看mysql表结构的三种方法" class="headerlink" title="查看mysql表结构的三种方法"></a>查看mysql表结构的三种方法</h1><h2 id="1、desc-tablename"><a href="#1、desc-tablename" class="headerlink" title="1、desc tablename;"></a>1、desc tablename;</h2><p>例如：<br>要查看jos_modules表结构的命令：<br>desc jos_modules;<br>查看结果：<br>mysql&gt; desc jos_modules;  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th style="text-align:right">Type</th>
+<th style="text-align:right">Null</th>
+<th style="text-align:right">Key</th>
+<th style="text-align:right">Default</th>
+<th style="text-align:right">Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:right">int(11)</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right">PRI</td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right">auto_increment</td>
+</tr>
+<tr>
+<td>title</td>
+<td style="text-align:right">text</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>content</td>
+<td style="text-align:right">text</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>ordering</td>
+<td style="text-align:right">int(11)</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>position</td>
+<td style="text-align:right">varchar(50)</td>
+<td style="text-align:right">YES</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>checked_out</td>
+<td style="text-align:right">int(11) unsigned</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>checked_out_time</td>
+<td style="text-align:right">datetime</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0000-00-00 00:00:00</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>published</td>
+<td style="text-align:right">tinyint(1)</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right">MUL</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>module</td>
+<td style="text-align:right">varchar(50)</td>
+<td style="text-align:right">YES</td>
+<td style="text-align:right">MUL</td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>numnews</td>
+<td style="text-align:right">int(11)</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>access</td>
+<td style="text-align:right">tinyint(3) unsigned</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>showtitle</td>
+<td style="text-align:right">tinyint(3) unsigned</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">1</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>params</td>
+<td style="text-align:right">text</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>iscore</td>
+<td style="text-align:right">tinyint(4)</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>client_id</td>
+<td style="text-align:right">tinyint(4)</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>control</td>
+<td style="text-align:right">text</td>
+<td style="text-align:right">NO</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">NULL</td>
+</tr>
+</tbody>
+</table>
+<p>##2、show create table tablename;<br>例如：<br>要查看jos_modules表结构的命令：<br>show create table jos_modules;<br>查看结果：  </p>
+<pre><code>mysql&gt; show create table jos_modules;  
+jos_modules | CREATE TABLE `jos_modules` (  
+`id` int(11) NOT NULL AUTO_INCREMENT,  
+`title` text NOT NULL,  
+`content` text NOT NULL,  
+`ordering` int(11) NOT NULL DEFAULT &apos;0&apos;,  
+`position` varchar(50) DEFAULT NULL,  
+`checked_out` int(11) unsigned NOT NULL DEFAULT &apos;0&apos;,  
+`checked_out_time` datetime NOT NULL DEFAULT &apos;0000-00-00 00:00:00&apos;,  
+`published` tinyint(1) NOT NULL DEFAULT &apos;0&apos;,  
+`module` varchar(50) DEFAULT NULL,  
+`numnews` int(11) NOT NULL DEFAULT &apos;0&apos;,  
+`access` tinyint(3) unsigned NOT NULL DEFAULT &apos;0&apos;,  
+`showtitle` tinyint(3) unsigned NOT NULL DEFAULT &apos;1&apos;,  
+`params` text NOT NULL,  
+`iscore` tinyint(4) NOT NULL DEFAULT &apos;0&apos;,  
+`client_id` tinyint(4) NOT NULL DEFAULT &apos;0&apos;,  
+`control` text NOT NULL,  
+PRIMARY KEY (`id`),  
+KEY `published` (`published`,`access`),  
+KEY `newsfeeds` (`module`,`published`)  
+) ENGINE=MyISAM AUTO_INCREMENT=145 DEFAULT CHARSET=utf8  
+</code></pre><h2 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h2><pre><code>use information_schema;
+select * from columns where table_name=&apos;tablename&apos; ;
+</code></pre><p>例如：<br>要查看jos_modules表结构的命令：<br>    use information_schema;<br>    select * from columns where table_name=’jos_modules’;<br>查看结果：<br>略。<br>如果要查看怎么建立数据表的命令用第二种方法最佳。</p>
+<h1 id="修改表或字段的编码格式"><a href="#修改表或字段的编码格式" class="headerlink" title="修改表或字段的编码格式"></a>修改表或字段的编码格式</h1><h2 id="1-修改表的编码格式"><a href="#1-修改表的编码格式" class="headerlink" title="1.修改表的编码格式"></a>1.修改表的编码格式</h2><pre><code>ALTER TABLE `table` DEFAULT CHARACTER SET utf8;  
+</code></pre><h2 id="2-修改字段的编码格式"><a href="#2-修改字段的编码格式" class="headerlink" title="2.修改字段的编码格式"></a>2.修改字段的编码格式</h2><pre><code>ALTER TABLE `tablename` CHANGE `字段名1` `字段名2` VARCHAR(36) CHARACTER SET utf8 NOT NULL;  
+</code></pre><h2 id="3-同时修改表与表中所有字段的编码格式"><a href="#3-同时修改表与表中所有字段的编码格式" class="headerlink" title="3.同时修改表与表中所有字段的编码格式"></a>3.同时修改表与表中所有字段的编码格式</h2><pre><code>alter table `tablename` convert to character set utf8;  
+</code></pre>
       
     </div>
     
@@ -330,13 +429,13 @@ hexo d == hexo deploy
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></p>
+        <p><span>本文标题:</span><a href="/2017/03/03/mysql-table-charater/">Mysql修改表编码格式</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tumumu 的个人博客">Tumumu</a></p>
-        <p><span>发布时间:</span>2016年12月15日 - 07时41分</p>
-        <p><span>最后更新:</span>2016年12月22日 - 10时49分</p>
+        <p><span>发布时间:</span>2017年03月03日 - 03时46分</p>
+        <p><span>最后更新:</span>2017年03月03日 - 14时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/15/installBlog/" title="Github+Hexo搭建博客">http://tumumu.cn/2016/12/15/installBlog/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2016/12/15/installBlog/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/03/mysql-table-charater/" title="Mysql修改表编码格式">http://tumumu.cn/2017/03/03/mysql-table-charater/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tumumu.cn/2017/03/03/mysql-table-charater/　　作者: Tumumu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -349,15 +448,11 @@ hexo d == hexo deploy
 
 <nav id="article-nav">
   
-    <a href="/2016/12/16/openwrt-libcurl-php/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          openwrt通过libcurl上传图片，PHP接收文件
-        
-      </div>
-    </a>
   
+    <a href="/2017/02/21/mysql-find_in_set/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql数据库中find_in_set()和in()用法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -366,7 +461,7 @@ hexo d == hexo deploy
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-环境安装"><span class="toc-number">1.</span> <span class="toc-text">1.环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1安装git"><span class="toc-number">1.1.</span> <span class="toc-text">1.1安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2安装node-js"><span class="toc-number">1.2.</span> <span class="toc-text">1.2安装node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3安装Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">1.3安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置GitHub"><span class="toc-number">2.</span> <span class="toc-text">2.配置GitHub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-配置blog"><span class="toc-number">3.</span> <span class="toc-text">3.配置blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1安装blog"><span class="toc-number">3.1.</span> <span class="toc-text">3.1安装blog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2启动blog服务"><span class="toc-number">3.2.</span> <span class="toc-text">3.2启动blog服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3生成静态文件"><span class="toc-number">3.3.</span> <span class="toc-text">3.3生成静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4部署到GitHub"><span class="toc-number">3.4.</span> <span class="toc-text">3.4部署到GitHub</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-配置域名"><span class="toc-number">4.</span> <span class="toc-text">4.配置域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-附录"><span class="toc-number">5.</span> <span class="toc-text">5.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">5.1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合命令"><span class="toc-number">5.2.</span> <span class="toc-text">复合命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题推荐"><span class="toc-number">5.3.</span> <span class="toc-text">主题推荐</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看mysql表结构的三种方法"><span class="toc-number">1.</span> <span class="toc-text">查看mysql表结构的三种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、desc-tablename"><span class="toc-number">1.1.</span> <span class="toc-text">1、desc tablename;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、"><span class="toc-number">1.2.</span> <span class="toc-text">3、</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改表或字段的编码格式"><span class="toc-number">2.</span> <span class="toc-text">修改表或字段的编码格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-修改表的编码格式"><span class="toc-number">2.1.</span> <span class="toc-text">1.修改表的编码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改字段的编码格式"><span class="toc-number">2.2.</span> <span class="toc-text">2.修改字段的编码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-同时修改表与表中所有字段的编码格式"><span class="toc-number">2.3.</span> <span class="toc-text">3.同时修改表与表中所有字段的编码格式</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -414,7 +509,7 @@ hexo d == hexo deploy
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/12/15/installBlog/" data-title="Github+Hexo搭建博客" data-url="http://tumumu.cn/2016/12/15/installBlog/"></div>
+    <div class="ds-thread" data-thread-key="2017/03/03/mysql-table-charater/" data-title="Mysql修改表编码格式" data-url="http://tumumu.cn/2017/03/03/mysql-table-charater/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -437,13 +532,13 @@ hexo d == hexo deploy
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/16/openwrt-libcurl-php/" title="上一篇: openwrt通过libcurl上传图片，PHP接收文件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/02/21/mysql-find_in_set/" title="下一篇: mysql数据库中find_in_set()和in()用法">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/mysql-table-charater/">Mysql修改表编码格式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/mysql-find_in_set/">mysql数据库中find_in_set()和in()用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/20/python-nohup/">python在后台运行程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/linux-directory-permition/">linux修改文件所属用户和组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/12/python-strip/">python去除空格和换行符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/get-douban-data/">从网站爬取数据(入门级)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/linux-command/">Linux's commands</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/find-word-files/">多文件中查找字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/openwrt-libcurl-php/">openwrt通过libcurl上传图片，PHP接收文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/installBlog/">Github+Hexo搭建博客</a></li></ul>
